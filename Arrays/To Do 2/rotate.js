@@ -29,3 +29,31 @@ function rotate(array, moveBy) {
         }
     }
 }
+
+
+function rotate2(array, moveBy) {
+    reverse(array);
+    var rotations;
+    if (moveBy > 0) {
+        rotations = moveBy % array.length;
+    } else {
+        rotations = Math.abs(moveBy) % array.length;
+    }
+    if (moveBy>0) {
+        reverse(array, 0, rotations-1)
+        reverse(array, rotations, array.length-1)
+    } else {
+        reverse(array, 0, array.length-rotations-1);
+        reverse(array, array.length-rotations , array.length-1)
+    }
+}
+
+function reverse(array, startingIndex=0, endingIndex = array.length-1) {
+    var numIterations = 0
+    for (var k = startingIndex; k < (startingINdex + endingIndex)/2; k++) {
+        var temp = array[k];
+        array[k] = array[endingIndex - numIterations];
+        array[endingIndex - numIterations] = temp;
+        numIterations++;
+    }
+}
