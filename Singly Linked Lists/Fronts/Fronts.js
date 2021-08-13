@@ -1,6 +1,13 @@
+class Node {
+    constructor(value) {
+        this.value = val;
+        this.next = null
+    }
+}
+
 class Sll {
-    constructor () {
-        this.head=null
+    constructor() {
+        this.head = null
     }
     addFront(value) {
         newNode = new Node(value);
@@ -9,14 +16,19 @@ class Sll {
         return this;
     }
     removeFront() {
-        if (this.next == null) {
-            node = null
+        if (this.head == null) {
+            return this.head
         }
-        this.next = temp
-        temp = this.head
+        removeNode = this.head;
+        this.head = removeNode.next;
+        return this
     }
     front() {
-        var currentFront = this.head.val;
-        return currentFront;
+        if (this.head == null) {
+            return null
+        } else {
+            var currentFront = this.head.val;
+            return currentFront;
+        }
     }
 }
